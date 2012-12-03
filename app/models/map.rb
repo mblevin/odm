@@ -15,4 +15,8 @@
 class Map < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: [:slugged, :history]
+  validates :title, :description, :theme, :presence => true
+
+  belongs_to :user
+  has_many :events
 end

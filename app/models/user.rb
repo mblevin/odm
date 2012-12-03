@@ -21,6 +21,13 @@
 #
 
 class User < ActiveRecord::Base
+  has_many :maps
+
   extend FriendlyId
   friendly_id :username, use: [:slugged, :history]
+
+  has_secure_password
+  validates :username, :first_name, :email, :user_type, :presence => true
+  validates :username, :uniqueness => true
+
 end

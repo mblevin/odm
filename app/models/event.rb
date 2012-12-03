@@ -18,4 +18,8 @@
 class Event < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: [:slugged, :history]
+
+  belongs_to :map
+  has_many :photos
+
 end

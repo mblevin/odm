@@ -1,0 +1,16 @@
+<% content_for :title, "Login" %>
+
+<%= form_tag '/login' do %>
+
+  <%= label_tag 'Username' %>
+  <%= text_field_tag 'username' %>
+
+  <%= label_tag 'Password' %>
+  <%= password_field_tag 'password' %>
+
+  <%= submit_tag 'Login' %>
+
+<% end %>
+
+  <h4>Don't have an account?
+  <%= link_to 'Sign up', root_path %>.</h4>
