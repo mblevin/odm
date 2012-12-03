@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121203044323) do
+ActiveRecord::Schema.define(:version => 20121203051308) do
 
   create_table "events", :force => true do |t|
     t.integer  "map_id"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20121203044323) do
     t.datetime "updated_at",       :null => false
     t.string   "slug"
     t.boolean  "private"
+    t.integer  "user_id"
   end
 
   add_index "maps", ["slug"], :name => "index_maps_on_slug"
