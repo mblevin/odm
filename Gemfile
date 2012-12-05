@@ -19,6 +19,8 @@ gem 'friendly_id'
 gem "aws-ses", "~> 0.4.4", :require => 'aws/ses'
 gem 'kaminari'
 gem 'twilio-ruby'
+gem 'backbone-rails'
+gem 'geocoder'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -36,6 +36,8 @@ GEM
       mail (> 2.2.5)
       mime-types
       xml-simple
+    backbone-rails (0.9.2)
+      rails (>= 3.0.0)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.4)
     carrierwave (0.7.1)
@@ -65,6 +67,7 @@ GEM
       ruby-hmac
     formatador (0.2.4)
     friendly_id (4.0.9)
+    geocoder (1.1.5)
     hike (1.2.1)
     httparty (0.9.0)
       multi_json (~> 1.0)
@@ -167,11 +170,13 @@ PLATFORMS
 DEPENDENCIES
   annotate
   aws-ses (~> 0.4.4)
+  backbone-rails
   bcrypt-ruby
   carrierwave
   coffee-rails (~> 3.2.1)
   fog
   friendly_id
+  geocoder
   httparty
   jquery-rails
   kaminari

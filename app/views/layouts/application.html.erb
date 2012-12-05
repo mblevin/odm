@@ -2,8 +2,8 @@
 <html>
 <head>
   <title><%= yield(:title) %> - zODM</title>
+  <meta name="description" content="<%= yield(:meta_description) %>">
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= yield(:user_stylesheet) %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>

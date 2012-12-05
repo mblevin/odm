@@ -1,3 +1,7 @@
-<% @users.each do |user| %>
-
-<% end %>
+<div class="individual_user">
+  <% @users.each do |user| %>
+    <%= link_to user.username, user %>
+    <%= user.first_name %>
+    <%= user.last_name %>
+  <% end %>
+</div>
