@@ -13,7 +13,9 @@ Odm::Application.routes.draw do
   match '/login' => 'session#create', :via => :post
   match '/logout' => 'session#destroy', :via => :get
 
-  match '/brands' => 'home#brands', :via => :get
+  match '/partners' => 'home#partners', :via => :get
+  match '/partner-dashboard' => 'users#partner-dashboard', :via => :get
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
