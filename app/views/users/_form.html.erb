@@ -1,7 +1,5 @@
 <%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <%= render :partial => 'shared/errors', object: f.object %>
-  <% end %>
+  <%= render :partial => 'shared/errors', :locals => {:object => @user} %>
   <div class="form-field">
     <%= f.label :first_name, "First Name:" %>
     <%= f.text_field :first_name %>
@@ -22,4 +20,5 @@
     <%= f.label :bio, "Say a Few Words About Yourself" %>
     <%= f.text_area :bio %>
   </div>
+    <%= f.submit "Go" %>
 <% end %>

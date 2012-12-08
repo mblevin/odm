@@ -27,7 +27,9 @@ class User < ActiveRecord::Base
   friendly_id :username, use: [:slugged, :history]
 
   has_secure_password
-  validates :username, :first_name, :email, :user_type, :presence => true
+  validates :username, :first_name, :email, :presence => true
   validates :username, :uniqueness => true
 
+  scope :admin, where(user_type: "admin")
+  scope :partner, where(user_type: "partner")
 end

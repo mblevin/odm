@@ -7,7 +7,7 @@ Odm::Application.routes.draw do
     end
   end
 
-  match '/dashboard' => 'user#dashboard', :via => :get
+  match '/dashboard' => 'users#dashboard', :via => :get
 
   match '/login' => 'session#new', :via => :get
   match '/login' => 'session#create', :via => :post

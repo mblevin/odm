@@ -1,0 +1,12 @@
+<%= form_for [@user, @map] do |f| %>
+  <%= render :partial => 'shared/errors', :locals => {:object => @map} %>
+  <div class="form-field">
+    <%= f.label :title, "Title:" %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-field">
+    <%= f.label :description, "Describe the map a little bit:" %>
+    <%= f.text_area :description %>
+  </div>
+    <%= f.submit "Go" %>
+<% end %>
