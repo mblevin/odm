@@ -1,0 +1,7 @@
+<% content_for :title, "Add a New Event to Your Map" %>
+<% content_for :meta_description, "Add a new event to your map at Gocotoco." %>
+<%= render 'form' %>
+
+<% if !@existing_events.nil? %>
+  <%= render 'events_list' %>
+<% end %>
