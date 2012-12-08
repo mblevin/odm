@@ -13,6 +13,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  slug        :string(255)
+#  photo_url   :string(255)
 #
 
 class Event < ActiveRecord::Base
@@ -20,6 +21,4 @@ class Event < ActiveRecord::Base
   friendly_id :title, use: [:slugged, :history]
 
   belongs_to :map
-  has_many :photos
-
 end

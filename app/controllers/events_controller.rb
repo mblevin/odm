@@ -22,4 +22,7 @@ class EventsController < ApplicationController
   end
   def destroy
   end
+
+  def find_place
+  end
 end

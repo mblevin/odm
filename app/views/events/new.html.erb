@@ -1,6 +1,23 @@
 <% content_for :title, "Add a New Event to Your Map" %>
 <% content_for :meta_description, "Add a new event to your map at Gocotoco." %>
-<%= render 'form' %>
+
+<div class="find-place">
+  <%= form_tag '/find_place', :remote => true do %>
+    <div class="form-field optional">
+      <%= label_tag :place, "Place" %>
+      <%= text_field_tag :place %>
+    </div>
+    <div class="form-field optional">
+      <%= label_tag :city, "City" %>
+      <%= text_field_tag :city %>
+    </div>
+    <%= submit_tag "Go" %>
+  <% end %>
+</div>
+
+<div class="found-places">
+
+</div>
 
 <% if !@existing_events.nil? %>
   <%= render 'events_list' %>

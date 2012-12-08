@@ -7,6 +7,8 @@ Odm::Application.routes.draw do
     end
   end
 
+  match '/find_place' => 'events#find_place', :via => :post
+
   match '/dashboard' => 'users#dashboard', :via => :get
 
   match '/login' => 'session#new', :via => :get
