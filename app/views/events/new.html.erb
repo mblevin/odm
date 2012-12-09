@@ -2,17 +2,15 @@
 <% content_for :meta_description, "Add a new event to your map at Gocotoco." %>
 
 <div class="find-place">
-  <%= form_tag '/find_place', :remote => true do %>
-    <div class="form-field optional">
-      <%= label_tag :place, "Place" %>
-      <%= text_field_tag :place %>
-    </div>
-    <div class="form-field optional">
-      <%= label_tag :city, "City" %>
-      <%= text_field_tag :city %>
-    </div>
-    <%= submit_tag "Go" %>
-  <% end %>
+  <div class="form-field optional">
+    <%= label_tag :place, "Place" %>
+    <%= text_field_tag :place %>
+  </div>
+  <div class="form-field optional">
+    <%= label_tag :city, "City" %>
+    <%= text_field_tag :city %>
+  </div>
+  <%= button_tag "Go" %>
 </div>
 
 <div class="found-places">
