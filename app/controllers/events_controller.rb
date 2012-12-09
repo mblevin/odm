@@ -44,7 +44,6 @@ class EventsController < ApplicationController
       redirect_to root_path
     end
     if @event.save
-      binding.pry
       @events = Event.where(:map_id => @map.id)
       render :json => @events
     else

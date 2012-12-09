@@ -1,14 +1,13 @@
 $(function() {
   $('div.save-place').hide();
   $('div.found-places').on('click','a',choosePlace);
+  $('div.save-place').submit(savePlace)
 });
-
-var place;
 
 function choosePlace (e) {
   console.log("Hello");
   e.preventDefault();
-  place = $(this).parent().parent();
+  var place = $(this).parent().parent();
   gocoApp.placeDetails.latitude = place.data('lat'),
     gocoApp.placeDetails.longitude = place.data('lng'),
     gocoApp.placeDetails.place_name = place.find('.place-name').text(),
@@ -21,10 +20,13 @@ function choosePlace (e) {
 
 function savePlace (e) {
   e.preventDefault();
-  eventDate =
+  eventMonth = parseInt($('select#event_date_month').val(), 10) - 1;
+  eventDay = parseInt($('select#event_date_day').val());
+  eventYear = parseInt($('input#year').val());
+  eventDate = new Date(eventYear, eventMonth, eventDay);
   gocoApp.placeDetails.title = $('input#title').val();
-  gocoApp.placeDetails.description = $('input#description').val();
-  gocoApp.placeDetails.date = $('input#event_date').val();
+  gocoApp.placeDetails.description = $('textarea#description').val();
+  gocoApp.placeDetails.date = eventDate;
   $.ajax({
       type: "POST",
       url: "/save_event",

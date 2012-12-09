@@ -23,6 +23,7 @@
 </div>
 
 <div class="save-place">
+<%= form_tag do %>
   <h3 id="place-name"></h3>
   <div class="form-field">
     <%= label_tag :title, "Headline:" %>
@@ -39,6 +40,7 @@
   </div>
   <%= submit_tag "Add Event" %>
 </div>
+<% end %>
 
 <% if !@existing_events.nil? %>
   <%= render 'events_list' %>
