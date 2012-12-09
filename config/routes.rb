@@ -8,6 +8,8 @@ Odm::Application.routes.draw do
   end
 
   match '/find_place' => 'events#find_place', :via => :post
+  match '/get_place' => 'events#get_place', :via => :post
+  match '/save_event' => 'events#save_event', :via => :post
 
   match '/dashboard' => 'users#dashboard', :via => :get
 

@@ -1,1 +1,23 @@
-alert("<%= params[:place] %>");
+$.ajax({
+type: "POST",
+url: "/get_place",
+data: { place: $('input#place').val(),
+        near: $('input#near').val()}
+}).done(function( msg ) {
+  var places = msg,
+      placesLength = places.length;
+  $('div.found-places').empty();
+  for (var i = 0; i < placesLength; i++){
+    //Creating the HTML elements.
+    var place = places[i],
+        div = $('<div>').addClass('found-place').attr('data-lat', place['location']['lat']).attr('data-lng', place['location']['lng']),
+        name = $('<h3>').addClass('place-name').text(place['name']),
+        cityName = place['location']['city'] || "",
+        citySpan = $('<span>').addClass('city').text(cityName),
+        selectLink = $('<div>').html($('<a>').text('Select').attr('href', '#')).addClass('select-link');
+
+    $(div).append(name).append(citySpan).append(selectLink);
+    $('div.found-places').append(div);
+  }
+});
+

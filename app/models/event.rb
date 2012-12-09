@@ -14,6 +14,7 @@
 #  updated_at  :datetime         not null
 #  slug        :string(255)
 #  photo_url   :string(255)
+#  place_name  :string(255)
 #
 
 class Event < ActiveRecord::Base

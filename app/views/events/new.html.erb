@@ -1,20 +1,43 @@
+<!--Using the below to pull into the controller via JS so we can
+    save to the right map. We confirm, then, that the users has the rights to save to that map. -->
+<%= tag :meta, :name=> 'map_id', :content=> params[:map_id] %>
 <% content_for :title, "Add a New Event to Your Map" %>
 <% content_for :meta_description, "Add a new event to your map at Gocotoco." %>
 
 <div class="find-place">
-  <div class="form-field optional">
+<%= form_tag '/find_place', :remote => true do %>
+  <div class="form-field">
     <%= label_tag :place, "Place" %>
     <%= text_field_tag :place %>
   </div>
   <div class="form-field optional">
-    <%= label_tag :city, "City" %>
-    <%= text_field_tag :city %>
+    <%= label_tag :near, "Near" %>
+    <%= text_field_tag :near %>
   </div>
-  <%= button_tag "Go" %>
+  <%= submit_tag "Go" %>
+<% end %>
 </div>
 
 <div class="found-places">
 
+</div>
+
+<div class="save-place">
+  <h3 id="place-name"></h3>
+  <div class="form-field">
+    <%= label_tag :title, "Headline:" %>
+    <%= text_field_tag :title %>
+  </div>
+  <div class="form-field optional">
+    <%= label_tag :description, "Tell a little story:" %>
+    <%= text_area_tag :description %>
+  </div>
+  <div class="form-field date optional">
+    <%= label_tag :event_date, "Date:" %>
+    <%= select_date Date.today, :prefix => :event_date, :order => [:month, :day], :include_blank => true, :discard_year => true  %>
+    <%= text_field_tag :year %>
+  </div>
+  <%= submit_tag "Add Event" %>
 </div>
 
 <% if !@existing_events.nil? %>
