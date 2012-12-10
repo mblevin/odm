@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if session[:username] != params[:id]
+    if @authenticated_user.user_type != "admin" && @authenticated_user != @user
       redirect_to users_path
     end
   end
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if session[:username] != params[:id]
+    if User.find(params[:id]) != @authenticated_user
       redirect_to users_path
     else
       user = User.find(params[:id])

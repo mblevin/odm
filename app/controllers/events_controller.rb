@@ -54,7 +54,6 @@ class EventsController < ApplicationController
   end
 
   def save_event
-    binding.pry
     @event = Event.new(params["placeDetails"])
     @map = Map.find(params["placeDetails"]["map_id"])
     @event.map_id = @map.id
