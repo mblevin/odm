@@ -1,5 +1,9 @@
 <h4>Existing Events</h4>
-
+<div class="events">
 <% @existing_events.each do |event| %>
-  <%= event.title %>
+  <div class="event">
+    <span class="event-title"><%= event.title %></span>
+    <span class="event-description"><%= event.description %></span>
+  </div>
 <% end %>
+</div>

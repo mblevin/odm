@@ -1,8 +1,13 @@
-<!--Using the below to pull into the controller via JS so we can
-    save to the right map. We confirm, then, that the users has the rights to save to that map. -->
-<%= tag :meta, :name=> 'map_id', :content=> params[:map_id] %>
+<% content_for :head do %>
+  <%= javascript_include_tag 'find-place' %>
+  <%= stylesheet_link_tag 'new-event' %>
+  <!--Using the below to pull into the controller via JS so we can
+      save to the right map. We confirm, then, that the users has the rights to save to that map. -->
+  <%= tag :meta, :name=> 'map_id', :content=> params[:map_id] %>
+<% end %>
 <% content_for :title, "Add a New Event to Your Map" %>
 <% content_for :meta_description, "Add a new event to your map at Gocotoco." %>
+
 
 <div class="find-place">
 <%= form_tag '/find_place', :remote => true do %>
@@ -22,26 +27,46 @@
 
 </div>
 
+<form class="new-place">
+  <h3>New Place</h3>
+    <div class="form-field">
+      <%= label_tag :new_place_name, "Place Name:" %>
+      <%= text_field_tag :new_place_name %>
+    </div>
+    <div class="form-field optional">
+      <%= label_tag :address, "Full Address:" %>
+      <%= text_field_tag :address %>
+    </div>
+    <%= submit_tag "Add Place" %>
+</form>
+
+
 <div class="save-place">
-<%= form_tag do %>
-  <h3 id="place-name"></h3>
-  <div class="form-field">
-    <%= label_tag :title, "Headline:" %>
-    <%= text_field_tag :title %>
-  </div>
-  <div class="form-field optional">
-    <%= label_tag :description, "Tell a little story:" %>
-    <%= text_area_tag :description %>
-  </div>
-  <div class="form-field date optional">
-    <%= label_tag :event_date, "Date:" %>
-    <%= select_date Date.today, :prefix => :event_date, :order => [:month, :day], :include_blank => true, :discard_year => true  %>
-    <%= text_field_tag :year %>
-  </div>
-  <%= submit_tag "Add Event" %>
+  <%= form_tag do %>
+    <h3 id="place-name"></h3>
+    <div class="form-field">
+      <%= label_tag :title, "Headline:" %>
+      <%= text_field_tag :title %>
+    </div>
+    <div class="form-field optional">
+      <%= label_tag :description, "Tell a little story:" %>
+      <%= text_area_tag :description %>
+    </div>
+    <div class="form-field date optional">
+      <%= label_tag :event_date, "Date:" %>
+      <%= select_date Date.today, :prefix => :event_date, :order => [:month, :day], :include_blank => true, :discard_year => true  %>
+      <%= text_field_tag :year %>
+    </div>
+    <%= submit_tag "Add Event" %>
+  <% end %>
 </div>
-<% end %>
 
 <% if !@existing_events.nil? %>
   <%= render 'events_list' %>
 <% end %>
+
+<div class="view-map">
+  <%= link_to "View #{@map.title.titleize}", user_map_path(@user, @map) %>
+</div>
+
+<div id="hidden_map"></div>

@@ -9,9 +9,28 @@ class EventsController < ApplicationController
   end
 
   def edit
-
+    @user = User.find(params[:user_id])
+    @map = Map.find(params[:map_id])
+    @event = Event.find(params[:id])
   end
+
+  def update
+    @event = Event.find(params[:id])
+    @map = Map.find(params[:map_id])
+    @user = User.find(params[:user_id])
+    if @event.update_attributes(params[:event])
+      redirect_to user_map_path(@user, @map)
+    else
+      render :edit
+    end
+  end
+
   def destroy
+    @user = User.find(params[:user_id])
+    @map = Map.find(params[:map_id])
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to user_map_path(@user, @map)
   end
 
   def find_place
@@ -35,12 +54,12 @@ class EventsController < ApplicationController
   end
 
   def save_event
-    @user = User.find(session[:id])
+    binding.pry
     @event = Event.new(params["placeDetails"])
     @map = Map.find(params["placeDetails"]["map_id"])
     @event.map_id = @map.id
 
-    if @map.user_id != @user.id
+    if @map.user_id != @authenticated_user.id
       redirect_to root_path
     end
     if @event.save

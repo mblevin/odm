@@ -1,0 +1,6 @@
+<% content_for :title, "Edit Your Event" %>
+<% content_for :meta_description, "Edit your event at Gocotoco." %>
+
+<%= render 'form' %>
+
+<%= link_to "Delete Event", user_map_event_path(@user, @map, @event), :method => :delete %>

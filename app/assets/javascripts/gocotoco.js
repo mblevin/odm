@@ -8,6 +8,7 @@ var gocoApp = {
     title: "",
     description: "",
     photo_url: "",
-    map_id: 0
+    map_id: 0,
+    street_view_heading: 0
   }
 };

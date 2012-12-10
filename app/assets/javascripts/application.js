@@ -15,5 +15,4 @@
 //= require 'underscore.js'
 //= require 'backbone.js'
 //= require 'gocotoco.js'
-//= require 'find_places.js'
 

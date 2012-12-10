@@ -7,6 +7,14 @@ data: { place: $('input#place').val(),
   var places = msg,
       placesLength = places.length;
   $('div.found-places').empty();
+    if (placesLength) {
+      renderFoundPlaces(places, placesLength);
+    } else{
+      noPlacesFound();
+    };
+});
+
+function renderFoundPlaces (places, placesLength) {
   for (var i = 0; i < placesLength; i++){
     //Creating the HTML elements.
     var place = places[i],
@@ -17,7 +25,8 @@ data: { place: $('input#place').val(),
         selectLink = $('<div>').html($('<a>').text('Select').attr('href', '#')).addClass('select-link');
 
     $(div).append(name).append(citySpan).append(selectLink);
-    $('div.found-places').append(div);
+    $('div.found-places').append(div).show();
   }
-});
-
+  var noPlacesFoundLink = $('<div>').html($('<a>').text('Select Another Place').attr('href', '#')).addClass('no-places-found')
+  $('div.found-places').append(noPlacesFoundLink);
+}
