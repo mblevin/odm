@@ -9,17 +9,20 @@ $(function() {
   map.addLayer(markerLayer);
 
   $('div.event').click(getEvent);
+
+  $.ajax({
+    type: "GET",
+    url: "/get_event",
+    data: { map_id: $('meta[name="map_id"]').attr('content')
+          }
+    }).done(function( msg ) {
+      console.log(msg);
+      gocoApp.events = msg;
+    });
 });
 
 function getEvent () {
   var eventId = $(this).attr('id');
 
-  $.ajax({
-    type: "GET",
-    url: "/get_event",
-    data: { event_id: eventId
-          }
-    }).done(function( msg ) {
-      console.log(msg);
-    });
+
 }

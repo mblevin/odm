@@ -85,9 +85,15 @@ class EventsController < ApplicationController
   end
 
   def get_event
-    @event = Event.find(params[:event_id])
+    map_id = Map.find(params[:map_id]).id
+    events = Event.where(:map_id => map_id)
+    @event_hash = {}
 
-    render :json => @event
+    events.each do |event|
+      @event_hash[event.id] = event
+    end
+    binding.pry
+    render :json => @event_hash
   end
 
 end
