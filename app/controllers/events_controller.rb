@@ -54,7 +54,7 @@ class EventsController < ApplicationController
   end
 
   def save_event
-    #Our year param is coming from a separate form, so if they don't fill it out
+    #Our year param is coming from a separate form field, so if they don't fill it out
     #we need to set a default.
     params[:year] = params[:event_date][:year] if params[:year] == ""
     @map = Map.find(params[:map_id])
@@ -82,6 +82,12 @@ class EventsController < ApplicationController
     else
       @message = "Event not saved. Try again."
     end
+  end
+
+  def get_event
+    @event = Event.find(params[:event_id])
+
+    render :json => @event
   end
 
 end

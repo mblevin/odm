@@ -1,5 +1,7 @@
+//Get rid of the message we gave when a user saved an event.
 $('div#save-message').hide().text('');
 
+//Get the list of places.
 $.ajax({
 type: "POST",
 url: "/get_place",

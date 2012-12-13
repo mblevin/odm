@@ -1,2 +1,9 @@
-
-  gocoApp.markers.push({"geometry": {"type": "Point", "coordinates": [<%= event.longitude %>, <%= event.latitude %>]}});
+gocoApp.markers.push(
+  {"geometry": {
+    "type": "Point",
+    "coordinates": [<%= event.longitude %>, <%= event.latitude %>]
+  },
+  "properties": {
+    "image": "<%= asset_path 'images/markers/map-flag-blue.png' %>"
+  }
+});
