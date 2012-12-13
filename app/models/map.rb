@@ -12,6 +12,7 @@
 #  slug             :string(255)
 #  private          :boolean
 #  user_id          :integer
+#  geo_center       :decimal(, )
 #
 
 class Map < ActiveRecord::Base
@@ -21,4 +22,6 @@ class Map < ActiveRecord::Base
 
   belongs_to :user
   has_many :events
+
+
 end

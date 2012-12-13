@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @maps = Map.where(:user_id => @user.id)
     if request.path != user_path(@user)
       redirect_to @user, status: :moved_permanently
     end
@@ -30,6 +31,9 @@ class UsersController < ApplicationController
   end
 
   def new
+    if @authenticated_user && @authenticated_user.user_type != "admin"
+      redirect_to root_path
+    end
     @user = User.new
   end
 
@@ -45,7 +49,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if User.find(params[:id]) != @authenticated_user
+    if User.find(params[:id]) != @authenticated_user && @authenticated_user.user_type != "admin"
       redirect_to users_path
     else
       user = User.find(params[:id])

@@ -1,0 +1,6 @@
+<div class="maps">
+  <h2>Maps</h2>
+  <% @user.maps.each do |map| %>
+    <%= link_to map.title, user_map_path(@user, map) %>
+  <% end %>
+</div>

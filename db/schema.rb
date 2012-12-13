@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121210180627) do
+ActiveRecord::Schema.define(:version => 20121212184559) do
 
   create_table "events", :force => true do |t|
     t.integer  "map_id"
@@ -45,13 +45,15 @@ ActiveRecord::Schema.define(:version => 20121210180627) do
   create_table "maps", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "theme",            :default => "default"
+    t.string   "theme",                :default => "default"
     t.integer  "number_of_events"
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
     t.string   "slug"
     t.boolean  "private"
     t.integer  "user_id"
+    t.decimal  "geo_center_latitude"
+    t.decimal  "geo_center_longitude"
   end
 
   add_index "maps", ["slug"], :name => "index_maps_on_slug"

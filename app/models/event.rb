@@ -21,6 +21,21 @@
 class Event < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: [:slugged, :history]
+  mount_uploader :photo_url, PhotoUploader
 
   belongs_to :map
+
+  after_save :set_center
+  after_update :set_center
+
+  def set_center
+    map_events = Event.where(:map_id => self.map_id)
+    current_map = Map.find(self.map_id)
+    map_points = map_events.collect{|map_event| [map_event.latitude, map_event.longitude]}
+    geo_center = Geocoder::Calculations.geographic_center(map_points)
+    # current_map.update_attributes(:geo_center_latitude => Geocoder::Calculations.geographic_center(map_points)[0])
+    # current_map.update_attributes(:geo_center_longitude => Geocoder::Calculations.geographic_center(map_points)[1])
+
+    current_map.save
+  end
 end

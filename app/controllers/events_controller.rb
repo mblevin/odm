@@ -54,18 +54,33 @@ class EventsController < ApplicationController
   end
 
   def save_event
-    @event = Event.new(params["placeDetails"])
-    @map = Map.find(params["placeDetails"]["map_id"])
-    @event.map_id = @map.id
+    #Our year param is coming from a separate form, so if they don't fill it out
+    #we need to set a default.
+    params[:year] = params[:event_date][:year] if params[:year] == ""
+    @map = Map.find(params[:map_id])
+    @user = User.find(@map.user_id)
+    @event = Event.new(
+      :title => params[:title],
+      :description => params[:description],
+      :date => Date.new(params[:year].to_i,
+                              params[:event_date][:month].to_i,
+                              params[:event_date][:day].to_i),
+      :photo_url => params[:photo_url],
+      :latitude => params[:latitude],
+      :longitude => params[:longitude],
+      :map_id => Map.find(params[:map_id]).id,
+      :place_name => params[:place_name],
+      :street_view_heading => params[:street_view_heading]
+      )
 
     if @map.user_id != @authenticated_user.id
-      redirect_to root_path
+      @message = "You don't have permission to do that."
     end
     if @event.save
+      @message = "Event saved."
       @events = Event.where(:map_id => @map.id)
-      render :json => @events
     else
-      render :json => "Unsuccessful"
+      @message = "Event not saved. Try again."
     end
   end
 

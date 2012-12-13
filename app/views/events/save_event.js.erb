@@ -1,0 +1,13 @@
+$('div#save-message').show().text("<%= @message %>");
+if ("<%= @message %>" === "Event not saved. Try again." || "<%= @message %>" === "You don't have permission to do that.") {
+} else{
+  $('div#save-message').show().text("<%= @message %>");
+  var events = [];
+
+  <% @events.each do |event| %>
+    events.push({'title': '<%=j event.title %>', 'description': '<%=j event.description %>'})
+  <% end %>
+
+  renderExistingEvents(events);
+  resetNewEventPage();
+};

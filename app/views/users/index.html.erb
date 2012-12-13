@@ -1,3 +1,9 @@
+<% content_for :head do %>
+
+<% end %>
+<% content_for :title, "View All Users" %>
+<% content_for :meta_description, "View all users and their maps at Gocotoco." %>
+
 <div class="individual_user">
   <% @users.each do |user| %>
     <%= link_to user.username, user %>

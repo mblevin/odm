@@ -1,0 +1,13 @@
+<% content_for :head do %>
+
+<% end %>
+<% content_for :title, "Maps from #{@user.username}" %>
+<% content_for :meta_description, "View all maps from #{@user.username} at Gocotoco." %>
+<div class="info">
+  <h1><%= @user.username %></h1>
+  <span class="name"><%= @user.first_name %> <%= @user.last_name %></span>
+</div>
+
+<%= show_user_maps %>
+<%= edit_user_link %>
+<%= new_user_map_link %>

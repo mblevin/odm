@@ -10,5 +10,6 @@ var gocoApp = {
     photo_url: "",
     map_id: 0,
     street_view_heading: 0
-  }
+  },
+  markers: []
 };

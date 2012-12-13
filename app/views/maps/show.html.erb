@@ -1,11 +1,14 @@
 <% content_for :head do %>
   <%= javascript_include_tag 'http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js' %>
-  <%= javascript_include_tag 'show-map' %>
+
   <%= stylesheet_link_tag 'show-map' %>
 <% end %>
 <% content_for :title, "Map: #{@map.title.titleize} from #{params[:user_id]}" %>
 <% content_for :meta_description, "#{@map.title.titleize} - A map from #{params[:user_id]} about truncate(@map.description, :length => 100, :separator => " ")." %>
-
+<script>
+  <%= render :partial => 'map' %>
+  <%= render :partial => 'pins', :collection => @map_events, :as => :event %>
+</script>
 <div id="map-canvas"></div>
 
 <div class="show-map">
