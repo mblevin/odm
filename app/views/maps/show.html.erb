@@ -22,8 +22,12 @@
     <% @map_events.each do |event| %>
       <div class="event" id="<%= event.id %>">
         <h3 class="event-title"><%= event.title %></h3>
-        <span class="event-description"><%= event.description %></span>
-      </div>
+        <span class="event-date"><%= event.date.to_s :long %></span>
+      </div><!--.event-->
     <% end %>
-  </div>
-</div>
+  </div><!--.events-->
+  <div class="event-details">
+    <%= render :partial => 'event_photo' %>
+    <%= render :partial => 'event_description' %>
+  </div><!--.event-details-->
+</div><!--.show-map-->

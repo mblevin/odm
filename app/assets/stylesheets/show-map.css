@@ -1,3 +1,7 @@
+/*
+=map styles
+*/
+
 #map-canvas {
   bottom: 0;
   height: 100%;
@@ -9,14 +13,27 @@
   z-index: -100;
 }
 
+.marker-image {
+    height: 45px;
+    margin-left: -16px;
+    margin-top: -30px;
+    pointer-events: all;
+    position: absolute;
+    width: 43px;
+}
+
+/*
+=event styles (sidebar)
+*/
+
 .events {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.9);
   bottom: 0;
   left: 0;
   overflow: auto;
   position: absolute;
   top: 0;
-  width: 17em;
+  width: 18%;
 }
 
 .event {
@@ -32,4 +49,29 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.event.selected {
+  background-color: rgba(74, 217, 217, 0.8);
+}
+
+/*
+=event details styles
+*/
+
+.event-details {
+  height: 94%;
+  margin-left: 20.5%;
+  margin-right: 3.5%;
+  position: absolute;
+  width: 76%;
+}
+
+.event-description {
+  background: #fff;
+  height: 40%;
+  width: 100%;
+}
+
+.event-photo {
 }
