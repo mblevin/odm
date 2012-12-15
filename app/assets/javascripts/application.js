@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require 'underscore.js'
 //= require 'backbone.js'
 //= require 'gocotoco.js'

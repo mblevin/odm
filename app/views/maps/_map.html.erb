@@ -1,18 +1,3 @@
-$(function() {
-  //Sets the map on the page.
-  gocoApp.map = mapbox.map('map-canvas');
-  gocoApp.map.centerzoom({lat: <%= @map.geo_center_latitude %>, lon: <%= @map.geo_center_longitude %>}, 7);
-  gocoApp.map.addLayer(mapbox.layer().id('dcoates.map-frbb1lgm'));
-
-  // mapbox.auto('map-canvas', 'dcoates.map-frbb1lgm');
-  var markerLayer = mapbox.markers.layer().features(gocoApp.markers).factory(function(f) {
-    // Define a new factory function. This takes a GeoJSON object
-    // as its input and returns an element - in this case an image -
-    // that represents the point.
-        var img = document.createElement('img');
-        img.className = 'marker-image';
-        img.setAttribute('src', f.properties.image);
-        return img;
-    });;
-  gocoApp.map.addLayer(markerLayer);
+$(function(){
+showMap(<%= @map.geo_center_latitude %>, <%= @map.geo_center_longitude %>)
 });

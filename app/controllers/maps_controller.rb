@@ -1,7 +1,7 @@
 class MapsController < ApplicationController
   def show
     @map = Map.find(params[:id])
-    @map_events = Event.where(:map_id => @map.id)
+    @map_events = Event.where(:map_id => @map.id).order('date ASC')
     @user = User.find(@map.user_id)
   end
   def new

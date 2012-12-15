@@ -21,6 +21,7 @@ gem 'kaminari'
 gem 'twilio-ruby'
 gem 'backbone-rails'
 gem 'geocoder'
+gem 'remotipart'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,6 +1,8 @@
 $('div#save-message').show().text("<%= @message %>");
-if ("<%= @message %>" === "Event not saved. Try again." || "<%= @message %>" === "You don't have permission to do that.") {
-} else{
+if (
+  "<%= @message %>" === "Event not saved. Try again." ||
+  "<%= @message %>" === "You don't have permission to do that.") {}
+  else{
   $('div#save-message').show().text("<%= @message %>");
   var events = [];
 

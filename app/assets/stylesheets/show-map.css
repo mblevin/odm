@@ -2,7 +2,7 @@
 =map styles
 */
 
-#map-canvas {
+#map-canvas, #street-view {
   bottom: 0;
   height: 100%;
   left: 0;
@@ -69,9 +69,23 @@
 
 .event-description {
   background: #fff;
-  height: 40%;
+  height: 30%;
+  overflow: auto;
   width: 100%;
 }
 
 .event-photo {
+  height: 68%;
+  margin-bottom: 2%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.event-photo img {
+  width: 100%;
+}
+
+/* For jQuery */
+.invisible {
+  display: none;
 }

@@ -1,5 +1,23 @@
 <%= form_for(@user) do |f| %>
   <%= render :partial => 'shared/errors', :locals => {:object => @user} %>
+  <div class="form-field optional">
+    <% if @user.new_record? %>
+      <%= f.label :username, "Username:" %>
+      <%= f.text_field :username %>
+    <% end %>
+  </div>
+  <div class="form-field optional">
+    <% if @user.new_record? %>
+      <%= f.label :password, "Password:" %>
+      <%= f.text_field :password %>
+    <% end %>
+  </div>
+  <div class="form-field optional">
+    <% if @user.new_record? %>
+      <%= f.label :password_confirmation, "Password Confirmation:" %>
+      <%= f.text_field :password_confirmation %>
+    <% end %>
+  </div>
   <div class="form-field">
     <%= f.label :first_name, "First Name:" %>
     <%= f.text_field :first_name %>
