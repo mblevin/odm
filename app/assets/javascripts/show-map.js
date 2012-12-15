@@ -55,10 +55,8 @@ function displayEvent () {
       }
     };
     var myPano = new google.maps.StreetViewPanorama(document.getElementById('street-view'), panoramaOptions);
-    console.log(myPano);
     myPano.setVisible(true);
   } else{
-    showMap(eventLatitude, eventLongitude);
     $('div#street-view').addClass('invisible');
     $('div#map-canvas').removeClass('invisible');
     gocoApp.map.ease.location({

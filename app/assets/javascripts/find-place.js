@@ -95,7 +95,7 @@ function renderExistingEvents (data) {
 
 function checkStreetView (lat, lng) {
   //Many thanks to: http://stackoverflow.com/a/8381895
-  var streetViewMaxDistance = 100;
+  var streetViewMaxDistance = 40;
 
   var point = new google.maps.LatLng(lat, lng);
   var mapOptions = {
@@ -109,9 +109,9 @@ function checkStreetView (lat, lng) {
         mapOptions);
   var streetViewService = new google.maps.StreetViewService();
   var panorama = map.getStreetView();
-
   streetViewService.getPanoramaByLocation(point, streetViewMaxDistance, function (streetViewPanoramaData, status) {
       if(status !== google.maps.StreetViewStatus.OK){
+        console.log("none");
         $('div.save-place #street_view_heading').val(0);
       }
       else{
