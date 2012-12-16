@@ -16,9 +16,8 @@
 <div class="show-map">
   <div class="map-details">
     <h2><%= @map.title %></h2>
-    <span class="from-user"><%= link_to @user.username, @user %> </span>
   </div>
-  <div class="event-details">
+  <div class="event-details clearfix">
     <%= render :partial => 'event_photo' %>
     <%= render :partial => 'event_description' %>
   </div><!--.event-details-->

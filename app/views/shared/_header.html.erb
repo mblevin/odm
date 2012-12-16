@@ -1,8 +1,11 @@
-<header>
+<header class="clearfix">
   <nav>
     <ul>
       <li><%= link_to 'Gocotoco', root_path %></li>
       <%= member_or_non_member %>
     </ul>
+    <span id="show-hide-link" class="shown">
+      <%= show_hide_link %>
+    </span>
   </nav>
 </header>

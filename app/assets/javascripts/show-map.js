@@ -1,5 +1,6 @@
 $(function() {
   $('div.event').click(displayEvent);
+  $('span#show-hide-link').click(togglePhotoDescription);
 
   //Pre-fetch all events so we can load them quickly.
   $.ajax({
@@ -82,7 +83,8 @@ function displayEventDetails (selectedDiv) {
       eventPhoto = currentEvent.photo_url.url;
 
   $('h1#event-title').text(currentEvent.place_name);
-  $('div.event-description p').text(currentEvent.description);
+  $('div.event-description p').html(currentEvent.description.replace(/\n\r?/g, '<br>'));
+  $('div.map-details h2').text(currentEvent.title);
 
   if (eventPhoto) {
     var img = $("<img>").attr("src", eventPhoto);
@@ -90,5 +92,16 @@ function displayEventDetails (selectedDiv) {
   } else{
     $('div.event-photo').empty();
   };
+}
 
+function togglePhotoDescription () {
+  if ($('.shown').length > 0) {
+    $('span#show-hide-link a').text("Show Event Details");
+    $('.event-details').slideUp('slow');
+  } else{
+    $('span#show-hide-link a').text("Hide Event Details");
+    $('.event-details').slideDown('slow');
+  };
+
+  $('span#show-hide-link').toggleClass('shown');
 }

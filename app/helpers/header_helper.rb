@@ -15,7 +15,13 @@ module HeaderHelper
     elsif params[:controller] == "users" && params[:action] == "show"
       link_to "Edit Your Account", edit_user_path(@user)
     else
-      link_to "Add New Map", new_user_map_path(session[:username])
+      link_to "View Your Maps", user_path(session[:username])
+    end
+  end
+
+  def show_hide_link
+    if params[:controller] == "maps" && params[:action] == "show"
+      link_to "Hide Event Details", '#'
     end
   end
 end

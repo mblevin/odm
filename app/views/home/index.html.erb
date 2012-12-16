@@ -1,34 +1,50 @@
 <% content_for :title, "Our Places, Our Atlases" %>
-<div class="intro details row clearfix">
-  <h2>"We shall not cease from exploring"</h2>
-  <div class="info six columns tell-the-where">
-    <h4 tk-alternate-gothic-no-1-d>Tell the "where" of your story.</h4>
+<div class="intro-boxes">
+
+<%= link_to(user_map_path(:user_id => "dustin", :id => "our-date-map")) do %>
+<div class="intro details clearfix">
+  <h2>"We shall not cease from exploring&hellip;"</h2>
+  <div class="info tell-the-where">
+    <h4 class="tk-alternate-gothic-no-1-d">Tell the where of your story.</h4>
   </div>
   <div class="example">
-    View a map based on "Paris I Love You, but You're Bringing Me Down"
+    View a map based on the locations of the movie <em>Slacker</em>
   </div>
 </div>
-
-<div class="historical details row clearfix">
-  <h2>"And the end of all our exploring"</h2>
-  <div class="info six columns connect-history">
-    <h4 tk-alternate-gothic-no-1-d>Connect history to the present.</h4>
+<% end %>
+<%= link_to(root_path) do %>
+<div class="historical details clearfix">
+  <h2>"And the end of all our exploring&hellip;"</h2>
+  <div class="info connect-history">
+    <h4 class="tk-alternate-gothic-no-1-d">Connect history to the present.</h4>
   </div>
   <div class="example">
-    View a map based on the Invasion of Normandy
+    View a map depicting the locations and events of the Invasion of Normandy
   </div>
 </div>
-
-<div class="register details row clearfix">
-  <h2>"Will be to arrive where we started"</h2>
-  <div class="info six columns get-started">
-    <h4 tk-pragmatica-web-condensed>Get started telling your story with gocotoco.</h4>
+<% end %>
+<%= link_to(new_user_path) do %>
+<div class="register details clearfix">
+  <h2>"Will be to arrive where we started&hellip;"</h2>
+  <div class="info get-started">
+    <h4 class="tk-alternate-gothic-no-1-d">Get started with gocotoco.</h4>
+  </div>
+  <div class="example">
+    Sign up for an account
   </div>
 </div>
-
-<div class="final details row clearfix">
-  <h2>"And know the place for the first time"</h2>
+<% end %>
+<%= link_to(login_path) do %>
+<div class="final details clearfix">
+  <h2>"And know the place for the first time."</h2>
+  <div class="info see-more">
+    <h4 class="tk-alternate-gothic-no-1-d">Login to your account.</h4>
+  </div>
+  <div class="example">
+    Welcome back
+  </div>
 </div>
-
+<% end %>
+</div>
 <%= link_to "New User", new_user_path %>
 <%= link_to "Users", users_path %>

@@ -4,9 +4,13 @@ body {
 }
 
 a {
+  color: #6cc1d3;
   text-decoration: none;
 }
 
+  a:hover {
+    color: #5d5d5d;
+  }
 
 
 #map-canvas, #street-view, #map-canvas-application {
@@ -25,67 +29,78 @@ a {
 */
 
 header {
-  background: -moz-linear-gradient(right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, right top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
-    background: linear-gradient(to left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 40%;
-  z-index: 500;
-}
-
-nav {
+  background: #fff;
+  border-bottom: 1px #888 solid;
+  padding: 5px 0 5px 0;
   width: 100%;
-  float: right;
 }
 
 nav ul {
-  float: right;
+  display: inline;
   font-size: 1.4em;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  margin: 0;
   padding-right: 1.9%;
 }
 
 nav ul li {
+  border-right: 1px #888 solid;
   display: inline;
+}
+
+nav a {
   padding-left: 2%;
   padding-right: 2%;
+}
+
+#show-hide-link {
+  float: right;
+  text-align: right;
+  width: 30%;
 }
 
 /*
 =index styles
 */
 
+.intro-boxes {
+  height: 900px;
+}
+
+.intro-boxes, .intro-boxes a {
+  color: #6cc1d3;
+}
 
 .details {
-  height: 500px;
+  float: left;
+  height: 100%;
+  padding: 1em 0.5%;
   padding-bottom: 1em;
   padding-top: 1em;
+  width: 24%;
 }
 
 .details h2{
   color: #fff;
-  font-size: 4em;
-  text-align: center;
-}
-
-.info {
+  font-size: 1.5em;
   text-align: center;
 }
 
 .info h4 {
-  color: #fff;
-  font-size: 3.5em;
+  color: #6cc1d3;
+  font-size: 6.5em;
+  height: 700px;
+  line-height: 0.9em;
+}
+
+.example {
+  background: rgba(0,0,0,.8);
+  height: 80px;
+  font-size: 1.5em;
+  padding: 10px;
 }
 
 .intro {
-  background: blue;
+  background: url(/assets/slacker.JPG);
 }
 
 .historical {
@@ -93,9 +108,9 @@ nav ul li {
 }
 
 .register {
-  background: orange;
+  background: url(/assets/brooklyn-bridge.jpg);
 }
 
 .final {
-  background: green;
+  background: url(/assets/big-bend.jpg);
 }
