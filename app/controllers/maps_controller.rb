@@ -20,6 +20,7 @@ class MapsController < ApplicationController
   end
   def edit
     @map = Map.find(params[:id])
+    @user = User.find(params[:user_id])
   end
   def destroy
   end

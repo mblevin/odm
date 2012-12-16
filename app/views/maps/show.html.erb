@@ -1,5 +1,4 @@
 <% content_for :head do %>
-  <%= javascript_include_tag 'http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js' %>
   <%= javascript_include_tag 'show-map' %>
   <%= stylesheet_link_tag 'show-map' %>
   <%= tag :meta, :name=> 'map_id', :content=> params[:id] %>
@@ -15,20 +14,20 @@
 
 
 <div class="show-map">
-  <div class="events">
-    <div class="map-details">
-      <h2><%= @map.title %></h2>
-      <span class="from-user"><%= link_to @user.username, @user %> </span>
-    </div>
-    <% @map_events.each do |event| %>
-      <div class="event" id="<%= event.id %>">
-        <h3 class="event-title"><%= event.title %></h3>
-        <span class="event-date"><%= event.date.to_s :long %></span>
-      </div><!--.event-->
-    <% end %>
-  </div><!--.events-->
+  <div class="map-details">
+    <h2><%= @map.title %></h2>
+    <span class="from-user"><%= link_to @user.username, @user %> </span>
+  </div>
   <div class="event-details">
     <%= render :partial => 'event_photo' %>
     <%= render :partial => 'event_description' %>
   </div><!--.event-details-->
+  <div class="events">
+    <% @map_events.each do |event| %>
+      <div class="event" id="<%= event.id %>">
+        <h3 class="event-title"><%= truncate(event.title, :length => 22, :separator => ' ', :omission => '...') %></h3>
+        <span class="event-date"><%= event.date.to_s :long %></span>
+      </div><!--.event-->
+    <% end %>
+  </div><!--.events-->
 </div><!--.show-map-->

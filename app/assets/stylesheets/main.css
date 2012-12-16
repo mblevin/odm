@@ -1,3 +1,101 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
+  /*padding-top: 1%;*/
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+#map-canvas, #street-view, #map-canvas-application {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: -100;
+}
+
+/*
+=Header styles
+*/
+
+header {
+  background: -moz-linear-gradient(right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, right top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+    background: linear-gradient(to left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40%;
+  z-index: 500;
+}
+
+nav {
+  width: 100%;
+  float: right;
+}
+
+nav ul {
+  float: right;
+  font-size: 1.4em;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-right: 1.9%;
+}
+
+nav ul li {
+  display: inline;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+/*
+=index styles
+*/
+
+
+.details {
+  height: 500px;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+.details h2{
+  color: #fff;
+  font-size: 4em;
+  text-align: center;
+}
+
+.info {
+  text-align: center;
+}
+
+.info h4 {
+  color: #fff;
+  font-size: 3.5em;
+}
+
+.intro {
+  background: blue;
+}
+
+.historical {
+  background: url(/assets/NormandySupply.jpg);
+}
+
+.register {
+  background: orange;
+}
+
+.final {
+  background: green;
 }

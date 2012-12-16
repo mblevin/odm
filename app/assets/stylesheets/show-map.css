@@ -2,17 +2,6 @@
 =map styles
 */
 
-#map-canvas, #street-view {
-  bottom: 0;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-  z-index: -100;
-}
-
 .marker-image {
     height: 45px;
     margin-left: -16px;
@@ -29,17 +18,22 @@
 .events {
   background-color: rgba(255, 255, 255, 0.9);
   bottom: 0;
+  height: 15%;
   left: 0;
-  overflow: auto;
+  overflow-y: hidden;
   position: absolute;
-  top: 0;
-  width: 18%;
+  right: 0;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .event {
-  border-bottom: 1px #888 solid;
+  border-right: 1px #888 solid;
   cursor: pointer;
+  display: inline-block;
+  height: 100%;
   padding: 2%;
+  position: relative;
 
   /* Prevent selection (because it looks bad) */
 
@@ -51,6 +45,10 @@
   user-select: none;
 }
 
+.event h3 {
+  font-size: 2em;
+}
+
 .event.selected {
   background-color: rgba(74, 217, 217, 0.8);
 }
@@ -60,11 +58,11 @@
 */
 
 .event-details {
-  height: 94%;
-  margin-left: 20.5%;
-  margin-right: 3.5%;
+  height: 64%;
+  margin-left: 4.5%;
+  margin-right: 4.5%;
   position: absolute;
-  width: 76%;
+  width: 69%;
 }
 
 .event-description {
@@ -82,7 +80,9 @@
 }
 
 .event-photo img {
-  width: 100%;
+  display: block;
+  margin: auto;
+  max-width: 100%;
 }
 
 /* For jQuery */

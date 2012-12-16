@@ -52,7 +52,9 @@ function displayEvent () {
         heading: currentEvent.street_view_heading,
         pitch:0,
         zoom:1
-      }
+      },
+      panControl: false,
+      zoomControl: false
     };
     var myPano = new google.maps.StreetViewPanorama(document.getElementById('street-view'), panoramaOptions);
     myPano.setVisible(true);
@@ -80,7 +82,6 @@ function displayEventDetails (selectedDiv) {
       eventPhoto = currentEvent.photo_url.url;
 
   $('h1#event-title').text(currentEvent.place_name);
-  $('span#event-date').text(currentEvent.date);
   $('div.event-description p').text(currentEvent.description);
 
   if (eventPhoto) {

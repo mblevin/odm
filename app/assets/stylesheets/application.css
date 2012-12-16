@@ -9,6 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require 'reset.css'
+ *= require 'gumby-ui.css'
+ *= require 'gumby.12col.css'
  *= require 'main.css'
- *= require '960.css'
 */
