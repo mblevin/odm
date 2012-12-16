@@ -1,6 +1,7 @@
 $(function() {
   $('div.save-place').hide();
   $('form.new-place').hide();
+  $('div#save-message').hide();
   $('div.found-places').on('click','div.select-link a',choosePlace);
   $('div.found-places').on('click','div.no-places-found a',noPlacesFound);
   $('form.new-place').submit(createPlace);

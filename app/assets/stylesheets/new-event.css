@@ -1,5 +1,15 @@
-h4 {
+#save-message {
+  background: #ffa554;
+  border: 1px solid #ff7526;
+  color: #fff;
+  font-size: 2em;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.view-map {
   border-bottom: 1px solid #6cc1d3;
+  font-size: 1.5em;
 }
 
 .found-place {

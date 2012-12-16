@@ -16,15 +16,19 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if @authenticated_user.user_type != "admin" && @authenticated_user != @user
-      redirect_to users_path
+    if !@authenticated_user.nil?
+      if @authenticated_user.user_type != "admin" && @authenticated_user != @user
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
     end
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to dashboard_path
+      redirect_to root_path
     else
       render :edit
     end
@@ -42,7 +46,7 @@ class UsersController < ApplicationController
       if @user.save
         session[:username] = @user.username
         session[:id] = @user[:id]
-        redirect_to dashboard_path
+        redirect_to new_user_map_path(@user)
       else
         render :new
       end

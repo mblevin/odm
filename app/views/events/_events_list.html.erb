@@ -1,4 +1,7 @@
 <h4>Existing Events</h4>
+<div class="view-map">
+  <%= link_to "View Your Map: #{@map.title.titleize}", user_map_path(@user, @map) %>
+</div>
 <div class="events">
 <% @existing_events.each do |event| %>
   <div class="event">

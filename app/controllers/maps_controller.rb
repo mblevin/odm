@@ -6,6 +6,13 @@ class MapsController < ApplicationController
   end
   def new
     @user = User.find(params[:user_id])
+    if !@authenticated_user.nil?
+      if @authenticated_user.user_type != "admin" && @authenticated_user != @user
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
     @map = @user.maps.build
   end
   def create
@@ -21,6 +28,14 @@ class MapsController < ApplicationController
   def edit
     @map = Map.find(params[:id])
     @user = User.find(params[:user_id])
+
+    if !@authenticated_user.nil?
+      if @authenticated_user.user_type != "admin" && @authenticated_user != @user
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
   end
   def destroy
   end

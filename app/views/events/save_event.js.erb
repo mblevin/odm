@@ -3,7 +3,7 @@ if (
   "<%= @message %>" === "Event not saved. Try again." ||
   "<%= @message %>" === "You don't have permission to do that.") {}
   else{
-  $('div#save-message').show().text("<%= @message %>");
+  $('div#save-message').slideDown().text("<%= @message %>");
   var events = [];
 
   <% @events.each do |event| %>

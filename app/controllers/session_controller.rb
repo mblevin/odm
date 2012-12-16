@@ -4,11 +4,11 @@ class SessionController < ApplicationController
   def new
   end
   def create
-    user = User.find_by_username(params[:username])
-    if user && user.authenticate(params[:password])
-      session[:username] = user.username
-      session[:id] = user[:id]
-      redirect_to users_path
+    @user = User.find_by_username(params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:username] = @user.username
+      session[:id] = @user[:id]
+      redirect_to user_path(@user)
     else
       render :new
     end

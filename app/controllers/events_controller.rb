@@ -5,11 +5,26 @@ class EventsController < ApplicationController
     @event = Event.new
     @map = Map.find(params[:map_id])
     @user = User.find(params[:user_id])
+
+    if !@authenticated_user.nil?
+      if @authenticated_user.user_type != "admin" && @authenticated_user != @user
+        redirect_to root_path
+      end
+    else
+      redirect_to login_path
+    end
     @existing_events = Event.where(:map_id => @map.id)
   end
 
   def edit
     @user = User.find(params[:user_id])
+    if !@authenticated_user.nil?
+      if @authenticated_user.user_type != "admin" && @authenticated_user != @user
+        redirect_to root_path
+      end
+    else
+      redirect_to login_path
+    end
     @map = Map.find(params[:map_id])
     @event = Event.find(params[:id])
   end
