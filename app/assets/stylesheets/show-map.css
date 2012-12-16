@@ -7,12 +7,12 @@
 }
 
 .marker-image {
-    height: 45px;
-    margin-left: -16px;
-    margin-top: -30px;
+    height: 80px;
+    margin-left: -45px;
+    margin-top: -80px;
     pointer-events: all;
     position: absolute;
-    width: 43px;
+    width: 80px;
 }
 
 .map-details {
@@ -104,8 +104,8 @@
   }
 
 .event-photo {
-  height: 100%;
   float: left;
+  height: 100%;
   margin: 2%;
   overflow: hidden;
   width: 61%;
@@ -120,4 +120,16 @@
 /* For jQuery */
 .invisible {
   display: none;
+}
+
+@media only screen and (max-width: 900px){
+  .event-photo {
+    max-height: 50%;
+    width: 96%
+  }
+
+  .event-description {
+    max-height:  35%;
+    width: 96%;
+  }
 }

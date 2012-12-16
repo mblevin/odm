@@ -18,8 +18,8 @@
     <h2><%= @map.title %></h2>
   </div>
   <div class="event-details clearfix">
-    <%= render :partial => 'event_photo' %>
     <%= render :partial => 'event_description' %>
+    <%= render :partial => 'event_photo' %>
   </div><!--.event-details-->
   <div class="events">
     <% @map_events.each do |event| %>
