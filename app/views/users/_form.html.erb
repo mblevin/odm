@@ -1,42 +1,46 @@
+<div class="row">
 <%= form_for(@user) do |f| %>
   <%= render :partial => 'shared/errors', :locals => {:object => @user} %>
-  <div class="form-field optional">
+  <div class="input-field">
     <% if @user.new_record? %>
       <%= f.label :username, "Username:" %>
       <%= f.text_field :username %>
     <% end %>
   </div>
-  <div class="form-field optional">
+  <div class="input-field">
     <% if @user.new_record? %>
       <%= f.label :password, "Password:" %>
-      <%= f.text_field :password %>
+      <%= f.password_field :password %>
     <% end %>
   </div>
-  <div class="form-field optional">
+  <div class="input-field">
     <% if @user.new_record? %>
       <%= f.label :password_confirmation, "Password Confirmation:" %>
-      <%= f.text_field :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
     <% end %>
   </div>
-  <div class="form-field">
+  <div class="input-field">
     <%= f.label :first_name, "First Name:" %>
     <%= f.text_field :first_name %>
   </div>
-  <div class="form-field optional">
+  <div class="input-field optional">
     <%= f.label :last_name, "Last Name:" %>
     <%= f.text_field :last_name %>
   </div>
-  <div class="form-field">
+  <div class="input-field">
     <%= f.label :city, "Current City:" %>
     <%= f.text_field :city %>
   </div>
-  <div class="form-field optional">
-    <%= f.label :state, "Current State" %>
+  <div class="input-field optional">
+    <%= f.label :state, "Current State:" %>
     <%= f.text_field :state %>
   </div>
-  <div class="form-field optional">
-    <%= f.label :bio, "Say a Few Words About Yourself" %>
+  <div class="input-field optional">
+    <%= f.label :bio, "Say a Few Words About Yourself:" %>
     <%= f.text_area :bio %>
   </div>
+  <div class="input-field">
     <%= f.submit "Go" %>
+  </div>
 <% end %>
+</div>

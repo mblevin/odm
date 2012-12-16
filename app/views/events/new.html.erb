@@ -7,75 +7,85 @@
 <% end %>
 <% content_for :title, "Add a New Event to Your Map" %>
 <% content_for :meta_description, "Add a new event to your map at Gocotoco." %>
+<div class="row">
+  <div id="save-message" class="twelve columns">
 
-<div id="save-message">
-
-</div>
-
-<div class="find-place">
-<%= form_tag '/find_place', :remote => true do %>
-  <div class="form-field">
-    <%= label_tag :place, "Place" %>
-    <%= text_field_tag :place %>
   </div>
-  <div class="form-field optional">
-    <%= label_tag :near, "Near" %>
-    <%= text_field_tag :near %>
-  </div>
-  <%= submit_tag "Go" %>
-<% end %>
 </div>
-
-<div class="found-places">
-
-</div>
-
-<form class="new-place">
-  <h3>New Place</h3>
-    <div class="form-field">
-      <%= label_tag :new_place_name, "Place Name:" %>
-      <%= text_field_tag :new_place_name %>
+<div class="row">
+  <div class="six columns">
+  <div class="find-place">
+  <%= form_tag '/find_place', :remote => true do %>
+    <div class="input-field">
+      <%= label_tag :place, "Place" %>
+      <%= text_field_tag :place %>
     </div>
-    <div class="form-field optional">
-      <%= label_tag :address, "Full Address:" %>
-      <%= text_field_tag :address %>
+    <div class="input-field optional">
+      <%= label_tag :near, "Near" %>
+      <%= text_field_tag :near %>
     </div>
-    <%= submit_tag "Add Place" %>
-</form>
-
-
-<div class="save-place">
-  <%= form_tag '/save_event', :remote => true do %>
-    <h3 id="place-name"></h3>
-    <div class="form-field">
-      <%= label_tag :title, "Headline:" %>
-      <%= text_field_tag :title %>
+    <div class="input-field">
+      <%= submit_tag "Go" %>
     </div>
-    <div class="form-field optional">
-      <%= label_tag :description, "Tell a little story:" %>
-      <%= text_area_tag :description %>
-    </div>
-    <div class="form-field date optional">
-      <%= label_tag :event_date, "Date:" %>
-      <%= select_date Date.today, :prefix => :event_date, :order => [:month, :day], :include_blank => true, :discard_year => true  %>
-      <%= text_field_tag :year %>
-    </div>
-    <div class="form-field optional">
-      <%= file_field_tag :photo_url %>
-    </div>
-      <%= hidden_field_tag :latitude %>
-      <%= hidden_field_tag :longitude %>
-      <%= hidden_field_tag :map_id %>
-      <%= hidden_field_tag :place_name %>
-      <%= hidden_field_tag :street_view_heading %>
-    <%= submit_tag "Add Event" %>
   <% end %>
+  </div>
+
+  <div class="found-places">
+
+  </div>
+
+  <form class="new-place">
+    <h3>New Place</h3>
+      <div class="input-field">
+        <%= label_tag :new_place_name, "Place Name:" %>
+        <%= text_field_tag :new_place_name %>
+      </div>
+      <div class="input-field">
+        <%= label_tag :address, "Full Address:" %>
+        <%= text_field_tag :address %>
+      </div>
+      <div class="input-field">
+        <%= submit_tag "Add Place" %>
+      </div>
+  </form>
+
+
+  <div class="save-place">
+    <%= form_tag '/save_event', :remote => true do %>
+      <h3 id="place-name"></h3>
+      <div class="input-field">
+        <%= label_tag :title, "Headline:" %>
+        <%= text_field_tag :title %>
+      </div>
+      <div class="input-field optional">
+        <%= label_tag :description, "Tell a little story:" %>
+        <%= text_area_tag :description %>
+      </div>
+      <div class="input-field date">
+        <%= label_tag :event_date, "Date:" %>
+        <%= select_date Date.today, :prefix => :event_date, :order => [:month, :day], :include_blank => true, :discard_year => true  %>
+        <%= text_field_tag :year %>
+      </div>
+      <div class="input-field optional photo">
+        <%= file_field_tag :photo_url %>
+      </div>
+        <%= hidden_field_tag :latitude %>
+        <%= hidden_field_tag :longitude %>
+        <%= hidden_field_tag :map_id %>
+        <%= hidden_field_tag :place_name %>
+        <%= hidden_field_tag :street_view_heading %>
+      <div class="input-field">
+        <%= submit_tag "Add Event" %>
+      </div>
+  <% end %>
+  </div>
+  </div>
+  <div class="six columns">
+  <% if !@existing_events.nil? %>
+    <%= render 'events_list' %>
+  <% end %>
+  </div>
 </div>
-
-<% if !@existing_events.nil? %>
-  <%= render 'events_list' %>
-<% end %>
-
 <div class="view-map">
   <%= link_to "View #{@map.title.titleize}", user_map_path(@user, @map) %>
 </div>

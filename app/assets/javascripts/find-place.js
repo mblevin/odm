@@ -75,6 +75,10 @@ function resetNewEventPage () {
   $('div.save-place textarea#description').val('');
   $('div.find-place input[type=text]').val('');
   $('div.save-place').hide();
+
+  //We have to recreate the photo input field.
+  var photoField = $('<input id="photo_url" name="photo_url" type="file">')
+  $('div.photo').html(photoField);
 }
 
 function renderExistingEvents (data) {
@@ -83,12 +87,11 @@ function renderExistingEvents (data) {
     var dataLength = data.length;
     for (var i = 0; i < dataLength; i++) {
       var div = $('<div>').addClass('event'),
-          titleSpan = $('<span>').addClass('event-title'),
-          descriptionSpan = $('<span>').addClass('event-description');
+          titleSpan = $('<h5>').addClass('event-title'),
+          descriptionSpan = $('<span>').addClass('event-location');
 
       $(titleSpan).text(data[i].title);
-      $(descriptionSpan).text(data[i].description);
-      $('div.events').append($(div).append(titleSpan).append(descriptionSpan));
+      $('div.events').append($(div).prepend(titleSpan).append(descriptionSpan));
     };
   };
 }

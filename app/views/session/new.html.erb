@@ -1,16 +1,23 @@
 <% content_for :title, "Login" %>
-
-<%= form_tag '/login' do %>
-
-  <%= label_tag 'Username' %>
-  <%= text_field_tag 'username' %>
-
-  <%= label_tag 'Password' %>
-  <%= password_field_tag 'password' %>
-
-  <%= submit_tag 'Login' %>
-
-<% end %>
-
+<% content_for :meta_description, "Login to Gocotoco." %>
+<div class="row login-info">
+<div class="login-box eight columns">
+  <%= form_tag '/login' do %>
+    <div class="input-field">
+        <%= label_tag 'Username' %>
+        <%= text_field_tag 'username' %>
+    </div>
+    <div class="input-field">
+        <%= label_tag 'Password' %>
+        <%= password_field_tag 'password' %>
+    </div>
+    <div class="input-field">
+        <%= submit_tag 'Login', :class => 'tk-museo-sans' %>
+    </div>
+  <% end %>
+</div>
+<div class="four columns">
   <h4>Don't have an account?
   <%= link_to 'Sign up', root_path %>.</h4>
+</div>
+</div>

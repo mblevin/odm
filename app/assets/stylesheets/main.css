@@ -1,6 +1,6 @@
 body {
+  color: #434343;
   font-family: Helvetica, Arial, sans-serif;
-  /*padding-top: 1%;*/
 }
 
 a {
@@ -29,8 +29,8 @@ a {
 */
 
 header {
-  background: #fff;
-  border-bottom: 1px #888 solid;
+  background: url(/assets/cream_dust.png);
+  border-bottom: 3px rgba(93,93,93,.3) solid;
   padding: 5px 0 5px 0;
   width: 100%;
 }
@@ -48,6 +48,7 @@ nav ul li {
 }
 
 nav a {
+  color: #6cc1d3;
   padding-left: 2%;
   padding-right: 2%;
 }
@@ -100,7 +101,7 @@ nav a {
 }
 
 .intro {
-  background: url(/assets/slacker.JPG);
+  background: url(/assets/vince-young-2005.jpg);
 }
 
 .historical {
@@ -113,4 +114,50 @@ nav a {
 
 .final {
   background: url(/assets/big-bend.jpg);
+}
+
+/*
+=login and input styles
+*/
+
+.login-info {
+  margin-top: 5%;
+}
+
+.input-field {
+  font-size: 2em;
+  padding: 10px 0;
+}
+
+.input-field input{
+  border: 0px;
+  font-size: 2em;
+}
+
+.input-field select {
+  border: 0px;
+  font-size: 1.2em;
+}
+
+.input-field textarea {
+  border: 2px solid #ffa554;
+  font-size: 1.5em;
+  height: 200px;
+}
+
+.input-field input, .input-field textarea {
+  border-bottom: 2px solid #ffa554;
+  color: inherit;
+  width: 100%;
+}
+
+.input-field label {
+  display: block;
+  padding: 5px 0;
+}
+
+.input-field.optional label:after {
+  content: "(This field optional)";
+  float: right;
+  font-size: .5em;
 }

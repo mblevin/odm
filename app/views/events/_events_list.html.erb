@@ -2,8 +2,8 @@
 <div class="events">
 <% @existing_events.each do |event| %>
   <div class="event">
-    <span class="event-title"><%= event.title %></span>
-    <span class="event-description"><%= event.description %></span>
+    <h5 class="event-title"><%= truncate(event.title, :length => 35, :separator => ' ', :omission => '...') %></h5>
+    <span class="event-location"><%= event.place_name %></span>
   </div>
 <% end %>
 </div>

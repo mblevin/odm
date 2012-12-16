@@ -1,0 +1,23 @@
+
+
+/*
+=show user styles
+*/
+
+.user-details div {
+  font-size: 1.5em;
+}
+
+.map {
+  border: #5d5d5d dashed 1px;
+  height: 150px;
+  padding: 4px;
+}
+
+.map p {
+  font-size: 1em;
+}
+
+.maps {
+  margin-bottom: 1%;
+}

@@ -54,7 +54,6 @@ class EventsController < ApplicationController
   end
 
   def save_event
-    binding.pry
     #Our year param is coming from a separate form field, so if they don't fill it out
     #we need to set a default.
     params[:year] = params[:event_date][:year] if params[:year] == ""

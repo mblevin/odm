@@ -13,7 +13,7 @@ module UserHelper
 
   def new_user_map_link
     if @authenticated_user == @user
-      link_to "Add a Map", new_user_map_path(@user)
+      link_to "Add a New Map", new_user_map_path(@user)
     end
   end
 end

@@ -3,11 +3,11 @@
 <% end %>
 <% content_for :title, "Maps from #{@user.username}" %>
 <% content_for :meta_description, "View all maps from #{@user.username} at Gocotoco." %>
-<div class="info">
+<div class="row user-details">
   <h1><%= @user.username %></h1>
-  <span class="name"><%= @user.first_name %> <%= @user.last_name %></span>
+  <div class="name"><%= @user.first_name %> <%= @user.last_name %></div>
+  <div class="location"><%= @user.city %></div>
 </div>
-
-<%= show_user_maps %>
-<%= edit_user_link %>
-<%= new_user_map_link %>
+<div class="row">
+  <%= show_user_maps %>
+</div>

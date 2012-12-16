@@ -1,6 +1,14 @@
 <div class="maps">
   <h2>Maps</h2>
-  <% @user.maps.each do |map| %>
-    <%= link_to map.title, user_map_path(@user, map) %>
-  <% end %>
+  <div class="row">
+    <% @user.maps.each do |map| %>
+      <div class="map four columns">
+        <h4><%= link_to map.title, user_map_path(@user, map) %></h4>
+        <p><%= map.description %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="add-new-map">
+  <%= new_user_map_link %>
 </div>
