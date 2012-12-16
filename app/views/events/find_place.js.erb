@@ -8,6 +8,10 @@ url: "/get_place",
 data: { place: $('input#place').val(),
         near: $('input#near').val()}
 }).done(function( msg ) {
+  if (msg === null) {
+    noPlacesFound();
+    return false;
+  };
   var places = msg,
       placesLength = places.length;
   $('div.found-places').empty();

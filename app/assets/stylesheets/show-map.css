@@ -2,6 +2,12 @@
 =map styles
 */
 
+/* Fixing a firefox bug */
+#street-view img {
+    border: none !important;
+    max-width: none !important;
+}
+
 .container.maps-show {
   padding: 0;
 }
