@@ -11,7 +11,7 @@ Map.delete_all
 Event.delete_all
 
 
-u1 = User.create(:username => "admin", :first_name => "Admin", :email => "dustin@dcoates.com", :password => "123!", :password_confirmation => "123!", :city => "Brooklyn", :state => "NY", :user_type => "admin", :bio => "I'm the original user.")
-u2 = User.create(:username => "dustin", :first_name => "Dustin", :last_name => "Coates", :email => "dustin@dcoates.com", :password => "123!", :password_confirmation => "123!", :city => "Brooklyn", :state => "NY", :user_type => "admin", :bio => "I'm the original user.")
-u3 = User.create(:username => "plus_user", :first_name => "Plus", :last_name => "User", :email => "dustin@dcoates.com", :password => "123!", :password_confirmation => "123!", :city => "Brooklyn", :state => "NY", :user_type => "plus", :bio => "I'm the original user.")
-u2 = User.create(:username => "regular_user", :first_name => "Dustin", :last_name => "Coates", :email => "dustin@dcoates.com", :password => "123!", :password_confirmation => "123!", :city => "Brooklyn", :state => "NY", :user_type => "admin", :bio => "I'm the original user.")
+u1 = User.create(:username => "admin", :first_name => "Admin", :email => "dustin@dcoates.com", :password => "0s5perd5per!!!", :password_confirmation => "0s5perd5per!!!", :city => "Brooklyn", :state => "NY", :user_type => "admin", :bio => "I'm the original user.")
+u2 = User.create(:username => "dustin", :first_name => "Dustin", :last_name => "Coates", :email => "dustin@dcoates.com", :password => "0s5perd5per!!!", :password_confirmation => "0s5perd5per!!!", :city => "Brooklyn", :state => "NY", :user_type => "admin", :bio => "I'm the original user.")
+u3 = User.create(:username => "plus_user", :first_name => "Plus", :last_name => "User", :email => "dustin@dcoates.com", :password => "0s5perd5per!!!", :password_confirmation => "0s5perd5per!!!", :city => "Brooklyn", :state => "NY", :user_type => "plus", :bio => "I'm the original user.")
+u2 = User.create(:username => "regular_user", :first_name => "Dustin", :last_name => "Coates", :email => "dustin@dcoates.com", :password => "0s5perd5per!!!", :password_confirmation => "0s5perd5per!!!", :city => "Brooklyn", :state => "NY", :user_type => "admin", :bio => "I'm the original user.")

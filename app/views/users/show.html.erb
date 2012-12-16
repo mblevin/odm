@@ -7,6 +7,9 @@
   <h1><%= @user.username %></h1>
   <div class="name"><%= @user.first_name %> <%= @user.last_name %></div>
   <div class="location"><%= @user.city %></div>
+  <div class="add-new-map">
+    <%= new_user_map_link %>
+  </div>
 </div>
 <div class="row">
   <%= show_user_maps %>

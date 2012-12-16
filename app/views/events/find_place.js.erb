@@ -20,6 +20,7 @@ data: { place: $('input#place').val(),
 
 function renderFoundPlaces (places, placesLength) {
   $('form.new-place').hide();
+  $('div.save-place').hide();
   for (var i = 0; i < placesLength; i++){
     //Creating the HTML elements.
     var place = places[i],

@@ -11,6 +11,7 @@ var gocoApp = {
     map_id: 0,
     street_view_heading: 0
   },
+  map:,
   markers: [],
   events: {}
 };
