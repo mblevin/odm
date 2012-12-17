@@ -1,4 +1,11 @@
+.signup-quote {
+  margin-top: 15px;
+  text-align: center;
+}
 
+.signup-quote h3 {
+  color: #838383;
+}
 
 /*
 =show user styles
@@ -8,9 +15,14 @@
   font-size: 1.5em;
 }
 
+.add-new-map a {
+  font-size: .8em;
+}
+
 .map {
   border: #5d5d5d dashed 1px;
   height: 150px;
+  overflow: hidden;
   padding: 4px;
 }
 
