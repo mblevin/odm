@@ -7,7 +7,7 @@ if (
   var events = [];
 
   <% @events.each do |event| %>
-    events.push({'title': '<%=j event.title %>', 'description': '<%=j event.description %>'})
+    events.push({'title': '<%=j event.title %>', 'placeName': '<%=j event.place_name %>'})
   <% end %>
 
   renderExistingEvents(events);

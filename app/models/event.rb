@@ -33,8 +33,8 @@ class Event < ActiveRecord::Base
     current_map = Map.find(self.map_id)
     map_points = map_events.collect{|map_event| [map_event.latitude, map_event.longitude]}
     geo_center = Geocoder::Calculations.geographic_center(map_points)
-    current_map.update_attributes(:geo_center_latitude => geo_center[0]) if geo_center[0]
-    current_map.update_attributes(:geo_center_longitude => geo_center[1]) if geo_center[1]
+    current_map.update_attributes(:geo_center_latitude => geo_center[0]) if !geo_center[0].nan?
+    current_map.update_attributes(:geo_center_longitude => geo_center[1]) if !geo_center[1].nan?
 
     current_map.save
   end

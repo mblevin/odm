@@ -90,8 +90,9 @@ function renderExistingEvents (data) {
       var div = $('<div>').addClass('event'),
           titleSpan = $('<h5>').addClass('event-title'),
           descriptionSpan = $('<span>').addClass('event-location');
-
+      console.log(descriptionSpan);
       $(titleSpan).text(data[i].title);
+      $(descriptionSpan).text(data[i].placeName)
       $('div.events').append($(div).prepend(titleSpan).append(descriptionSpan));
     };
   };
@@ -115,7 +116,6 @@ function checkStreetView (lat, lng) {
   var panorama = map.getStreetView();
   streetViewService.getPanoramaByLocation(point, streetViewMaxDistance, function (streetViewPanoramaData, status) {
       if(status !== google.maps.StreetViewStatus.OK){
-        console.log("none");
         $('div.save-place #street_view_heading').val(0);
       }
       else{
