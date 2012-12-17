@@ -1,6 +1,7 @@
 <% content_for :head do %>
   <%= javascript_include_tag 'show-map' %>
   <%= stylesheet_link_tag 'show-map' %>
+  <%= stylesheet_link_tag "#{@map.theme}" %>
   <%= tag :meta, :name=> 'map_id', :content=> params[:id] %>
 <% end %>
 <% content_for :title, "Map: #{@map.title.titleize} from #{params[:user_id]}" %>
