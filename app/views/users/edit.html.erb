@@ -1,3 +1,6 @@
 <% content_for :title, "Edit Your Profile" %>
 <% content_for :meta_description, "Edit your profile at Gocotoco." %>
 <%= render 'form' %>
+<div class="row">
+  <%= link_to "Change Your Password", change_password_path %>
+</div>

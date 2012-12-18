@@ -11,14 +11,25 @@ class UsersController < ApplicationController
     end
   end
 
+  def change_password
+     @user = User.find(session[:id])
+    if !@authenticated_user.nil?
+      if @authenticated_user.user_type != "admin" && @authenticated_user != @user
+        redirect_to user_path(@user)
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
   def dashboard
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(session[:id])
     if !@authenticated_user.nil?
       if @authenticated_user.user_type != "admin" && @authenticated_user != @user
-        redirect_to root_path
+        redirect_to user_path(@user)
       end
     else
       redirect_to root_path
@@ -28,7 +39,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to root_path
+      redirect_to user_path(@user)
     else
       render :edit
     end

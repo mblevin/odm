@@ -18,6 +18,9 @@ Odm::Application.routes.draw do
   match '/login' => 'session#create', :via => :post
   match '/logout' => 'session#destroy', :via => :get
 
+  match '/change-password' => 'users#change_password', :via => :get, :as => 'change_password'
+  match '/change-password' => 'users#change_password', :via => :post, :as => 'change_password'
+
   match '/partners' => 'home#partners', :via => :get
   match '/partner-dashboard' => 'users#partner_dashboard', :via => :get
 
