@@ -19,8 +19,10 @@ Odm::Application.routes.draw do
   match '/logout' => 'session#destroy', :via => :get
 
   match '/partners' => 'home#partners', :via => :get
-  match '/partner-dashboard' => 'users#partner-dashboard', :via => :get
+  match '/partner-dashboard' => 'users#partner_dashboard', :via => :get
 
+  match '/similar' => 'users#similar', :via => :get
+  match '/similar' => 'users#find_similar', :via => :post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

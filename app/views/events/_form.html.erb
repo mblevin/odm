@@ -1,18 +1,21 @@
+<div class="row">
 <%= form_for [@user, @map, @event] do |f| %>
   <%= render :partial => 'shared/errors', :locals => {:object => @event} %>
 
-  <div class="form-field">
+  <div class="input-field">
     <%= f.label :title, "Headline:" %>
     <%= f.text_field :title %>
   </div>
-  <div class="form-field optional">
+  <div class="input-field optional">
     <%= f.label :description, "Tell a little story:" %>
     <%= f.text_area :description %>
   </div>
-  <div class="form-field optional">
+  <div class="input-field optional">
     <%= f.label :date, "Date:" %>
     <%= f.date_select :date, :start_year => 1900, :end_year => Time.now.year + 2, :order => [:month, :day, :year], :include_blank => true %>
   </div>
-
+  <div class="input-field">
     <%= f.submit "Go" %>
+  </div>
 <% end %>
+</div>
