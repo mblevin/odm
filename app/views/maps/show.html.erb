@@ -5,7 +5,7 @@
   <%= tag :meta, :name=> 'map_id', :content=> params[:id] %>
 <% end %>
 <% content_for :title, "Map: #{@map.title.titleize} from #{params[:user_id]}" %>
-<% content_for :meta_description, "#{@map.title.titleize} - A map from #{params[:user_id]} about truncate(@map.description, :length => 100, :separator => " ")." %>
+<% content_for :meta_description, "#{@map.title.titleize} - A map from #{params[:user_id]} about #{truncate(@map.description, :length => 100, :separator => " ")}." %>
 <script>
   <%= render :partial => 'map' %>
   <%= render :partial => 'pins', :collection => @map_events, :as => :event %>
